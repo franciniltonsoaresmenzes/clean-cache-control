@@ -1,4 +1,5 @@
 import { CacheStore } from '@/data/protocols/cache/'
+import { mockPurchases } from '@/data/test'
 import { LocalSavePurchases } from '@/data/usecases'
 import { SavePurchases } from '@/domain/usecases'
 
@@ -26,19 +27,6 @@ class CacheStoreSpy implements CacheStore {
    jest.spyOn(CacheStoreSpy.prototype, 'insert').mockImplementationOnce( ()=> { throw new Error() })
   }
 }
-
-const mockPurchases = (): Array<SavePurchases.Params> => [
-{
-  id: '1',
-  date: new Date(),
-  value: 50
-},
-{
-  id: '2',
-  date: new Date(),
-  value: 70
-},
-]
 
 type SutTypes = {
   sut: LocalSavePurchases
