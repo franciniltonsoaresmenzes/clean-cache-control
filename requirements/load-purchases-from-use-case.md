@@ -10,7 +10,7 @@
 
 > ## Exceção - Cache expirado
 1. Sistema limpa o Cache
-2. Sistema retorna erro
+2. Sistema retorna um lista vazia
 
 > ## Exceção - Cache vazio
-1. Sistema retorna erro
+1. Sistema retorna lisa vazio
