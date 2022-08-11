@@ -1,4 +1,4 @@
-import { mockPurchases, CacheStoreSpy } from '@/data/test'
+import { CacheStoreSpy } from '@/data/test'
 import { LocalLoadPurchases } from '@/data/usecases'
 
 
@@ -22,6 +22,14 @@ describe('LocalSavePurchases', () => {
 
    const { cacheStore } = makeSut()
    expect(cacheStore.Actions).toEqual([])
+ })
+
+ test('Should call correct key on load', async () => {
+
+   const { cacheStore, sut } = makeSut()
+   await sut.loadAll()
+   expect(cacheStore.Actions).toEqual([CacheStoreSpy.Action.fetch])
+   expect(cacheStore.fetchKey).toBe('purchases')
  })
 })
 
